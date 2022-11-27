@@ -1,0 +1,16 @@
+.main-container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh ;
+  justify-content: center;
+}
+
+.main-div-container {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+  justify-content: space-evenly;
+  width: 500px;
+}

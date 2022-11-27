@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+@import 'bootstrap';
+
+body {
+  background: rgb(3,3,52);
+  background: linear-gradient(90deg, rgba(3,3,52,1) 0%, rgba(25,25,70,1) 35%, rgba(4,90,107,1) 100%);
+}

@@ -1,17 +1,20 @@
 <main class="main-container">
-  <div class="container card main-div-container">
+  <div class="container-fluid card main-div-container">
     <h1 class="text-center">Banco Fake</h1>
-    <form class="row m-1">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="row m-1">
       <div class="row mb-3">
         <label for="login" class="form-label">
           Login
-          <input type="email" id="login" class="form-control" />
+          <input type="email" id="login" class="form-control" placeholder="Digite seu email" formControlName="login"
+            [class.is-invalid]="showError('login')" />
         </label>
-        <label for="password" class="form-label">
+        <label for=" password" class="form-label">
           Password
-          <input type="password" id="password" class="form-control" />
+          <input type="password" id="password" class="form-control" placeholder="Digite sua senha"
+            formControlName="password" [class.is-invalid]="showError('password')" />
         </label>
       </div>
+      <p>Form Value: {{ loginForm.value | json }}</p>
       <div class="btn-group-vertical row mb-2" role="group" aria-label="Vertical button group">
         <button type="submit" class="btn btn-primary mb-2">Login</button>
         <button type="button" class="btn btn-secondary mb-2">Register</button>

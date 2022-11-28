@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginComponent } from './login/login.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { NotLoggedInGuard } from './shared/guards/not-logged-in/not-logged-in.guard';
 
 const routes: Routes = [/* {
   path: '',
@@ -16,11 +16,18 @@ const routes: Routes = [/* {
 }, */
   {
     path: '',
-    component: LoginComponent,
+    redirectTo: 'login',
+    pathMatch: 'full'
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then(m => m.LoginModule),
+    canActivate: [NotLoggedInGuard],
   },
   {
     path: '**',
     component: PageNotFoundComponent,
+    canActivate: [NotLoggedInGuard],
   }];
 
 @NgModule({

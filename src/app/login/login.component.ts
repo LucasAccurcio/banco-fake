@@ -11,6 +11,8 @@ import { LoginService } from './login.service';
 })
 export class LoginComponent {
 
+  loginError = false;
+
   loginForm = this.formBuilder.group({
     login: ['', [Validators.required, Validators.email]],
     password: ['', Validators.required],
@@ -34,6 +36,7 @@ export class LoginComponent {
   }
 
   onSubmit(): void {
+    this.loginError = false;
     if (this.loginForm.invalid) {
       this.validarCamposDoFormulario(this.loginForm);
       return;
@@ -46,6 +49,7 @@ export class LoginComponent {
   }
 
   onErrorLogin(): void {
+    this.loginError = true;
     console.error('Usuário ou senha incorretos.');
   }
 
@@ -62,7 +66,6 @@ export class LoginComponent {
     console.log('logIn');
     console.log(login + ' ' + password);
   }
-
 
   showError(campo: string): boolean | void {
     if (!this.loginForm.get(campo)) {

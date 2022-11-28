@@ -29,7 +29,7 @@ export class LoginService {
         );
     }
 
-    return timer(3000).pipe(
+    return timer(2000).pipe(
       mergeMap(() => throwError(() => new Error('Usuário ou senha incorretos.'))
       ));
   }

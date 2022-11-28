@@ -14,7 +14,7 @@
             formControlName="password" [class.is-invalid]="showError('password')" />
         </label>
       </div>
-      <p>Form Value: {{ loginForm.value | json }}</p>
+      <p *ngIf="loginError" class="text-danger">Login ou senha inválidos</p>
       <div class="btn-group-vertical row mb-2" role="group" aria-label="Vertical button group">
         <button type="submit" class="btn btn-primary mb-2">Login</button>
         <button type="button" class="btn btn-secondary mb-2">Register</button>

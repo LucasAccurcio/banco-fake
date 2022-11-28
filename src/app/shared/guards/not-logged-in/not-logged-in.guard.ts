@@ -14,13 +14,10 @@ export class NotLoggedInGuard implements CanActivate {
 
   canActivate(): boolean {
     const isLogged = this.authService.isLogged();
-
     if (isLogged) {
-      console.log('false');
+      this.router.navigate(['home']);
       return true;
     }
-    this.router.navigate(['login']);
-    console.log('true');
     return false;
-  }
+  } 
 }

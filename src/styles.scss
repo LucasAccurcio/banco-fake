@@ -2,6 +2,14 @@
 @import 'bootstrap';
 
 body {
-  background: rgb(3,3,52);
-  background: linear-gradient(90deg, rgba(3,3,52,1) 0%, rgba(25,25,70,1) 35%, rgba(4,90,107,1) 100%);
+  background: rgb(3, 3, 52);
+  background: linear-gradient(90deg, rgba(3, 3, 52, 1) 0%, rgba(25, 25, 70, 1) 35%, rgba(4, 90, 107, 1) 100%);
+}
+
+@media screen and (max-width: 550px) {
+  body {
+    background: rgba(25, 25, 70, 1);
+    ;
+  }
+
 }

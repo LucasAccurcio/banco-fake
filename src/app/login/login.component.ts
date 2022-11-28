@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 import { LoginService } from './login.service';
 
@@ -22,6 +23,7 @@ export class LoginComponent {
     private router: Router,
     private formBuilder: FormBuilder,
     private loginService: LoginService,
+    private toastr: ToastrService,
   ) { }
 
   validarCamposDoFormulario(form: FormGroup) {
@@ -72,5 +74,9 @@ export class LoginComponent {
       return false;
     }
     return this.loginForm.get(campo)?.invalid && this.loginForm.get(campo)?.touched;
+  }
+
+  registration(): void {
+    this.toastr.warning('Ainda não me implementaram!', 'Hmmm...');
   }
 }

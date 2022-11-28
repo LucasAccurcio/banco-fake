@@ -11,7 +11,21 @@ export class AuthService {
   user: User;
   token: string;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router) {
+    this.user = {
+      name: '',
+      email: '',
+    };
+    this.token = '';
+  }
+
+  initializeUserAndToken() {
+    this.user = {
+      name: '',
+      email: '',
+    };
+    this.token = '';
+  }
 
   setUser(user: User) {
     this.user = user;
@@ -60,8 +74,7 @@ export class AuthService {
   }
 
   logout() {
-    this.user = null;
-    this.token = null;
+    this.initializeUserAndToken();
     localStorage.clear();
     this.router.navigate(['login']);
   }

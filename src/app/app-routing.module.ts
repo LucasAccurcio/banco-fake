@@ -8,8 +8,8 @@ import { NotLoggedInGuard } from './shared/guards/not-logged-in/not-logged-in.gu
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
-    pathMatch: 'full'
+    loadChildren: () => import('./logged/logged.module').then(m => m.LoggedModule),
+    canActivate: [LoggedGuard],
   },
   {
     path: 'login',

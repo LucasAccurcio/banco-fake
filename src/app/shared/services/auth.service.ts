@@ -8,24 +8,10 @@ import { User } from '../interfaces/user.interface';
 })
 export class AuthService {
 
-  user: User;
-  token: string;
+  user: User | undefined;
+  token: string | undefined;
 
-  constructor(private router: Router) {
-    this.user = {
-      name: '',
-      email: '',
-    };
-    this.token = '';
-  }
-
-  initializeUserAndToken() {
-    this.user = {
-      name: '',
-      email: '',
-    };
-    this.token = '';
-  }
+  constructor(private router: Router) { }
 
   setUser(user: User) {
     this.user = user;
@@ -43,7 +29,7 @@ export class AuthService {
       return this.user;
     }
 
-    return null;
+    return undefined;
   }
 
   setToken(token: string) {
@@ -74,7 +60,8 @@ export class AuthService {
   }
 
   logout() {
-    this.initializeUserAndToken();
+    this.user = undefined;
+    this.token = undefined;
     localStorage.clear();
     this.router.navigate(['login']);
   }

@@ -6,7 +6,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +13,6 @@ import { SharedModule } from './shared/shared.module';
     PageNotFoundComponent,
   ],
   imports: [
-    SharedModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
